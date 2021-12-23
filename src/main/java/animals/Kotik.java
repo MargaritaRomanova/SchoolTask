@@ -1,8 +1,8 @@
 package animals;
 
-public class Kotik extends Carnivorous implements Run, Voice{
+import model.Size;
 
-    private String name;
+public class Kotik extends Carnivorous implements Run, Voice {
     private String voice;
     private int weight;
 
@@ -10,11 +10,19 @@ public class Kotik extends Carnivorous implements Run, Voice{
     private static final int METHODS = 5;
 
     public Kotik() {
+        super("Kotik");
+        count++;
+        voice = "meow-meow";
+    }
+
+    public Kotik(String name) {
+        super(name);
         count++;
         voice = "meow-meow";
     }
 
     public Kotik(String name, String voice, int satiety, int weight) {
+        super(name);
         count++;
         this.name = name;
         this.voice = voice;
@@ -51,7 +59,7 @@ public class Kotik extends Carnivorous implements Run, Voice{
     }
 
     public void setWeight(int weight) {
-        if (weight < 0){
+        if (weight < 0) {
             System.out.println("Вес должен быть больше 0");
         } else {
             this.weight = weight;
@@ -157,5 +165,10 @@ public class Kotik extends Carnivorous implements Run, Voice{
     @Override
     public void run() {
         System.out.println("Kotik is running");
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.SMALL;
     }
 }

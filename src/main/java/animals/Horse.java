@@ -1,6 +1,12 @@
 package animals;
 
-public class Horse extends Herbivore implements Run, Voice{
+import model.Size;
+
+public class Horse extends Herbivore implements Run, Voice {
+
+    public Horse(String name) {
+        super(name);
+    }
 
     @Override
     public void run() {
@@ -10,5 +16,10 @@ public class Horse extends Herbivore implements Run, Voice{
     @Override
     public String getVoice() {
         return "neigh-neigh";
+    }
+
+    @Override
+    public Size getSize() {
+        return Size.LARGE;
     }
 }
