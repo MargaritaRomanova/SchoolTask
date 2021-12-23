@@ -1,10 +1,9 @@
 package animals;
 
-public class Kotik {
+public class Kotik extends Carnivorous implements Run, Voice{
 
     private String name;
     private String voice;
-    private int satiety;
     private int weight;
 
     private static int count = 0;
@@ -12,6 +11,7 @@ public class Kotik {
 
     public Kotik() {
         count++;
+        voice = "meow-meow";
     }
 
     public Kotik(String name, String voice, int satiety, int weight) {
@@ -27,7 +27,11 @@ public class Kotik {
     }
 
     public void setName(String name) {
-        this.name = name;
+        if (name == null) {
+            System.out.println("Введите имя Kotik");
+        } else {
+            this.name = name;
+        }
     }
 
     public String getVoice() {
@@ -36,10 +40,6 @@ public class Kotik {
 
     public void setVoice(String voice) {
         this.voice = voice;
-    }
-
-    public int getSatiety() {
-        return satiety;
     }
 
     public void setSatiety(int satiety) {
@@ -51,7 +51,11 @@ public class Kotik {
     }
 
     public void setWeight(int weight) {
-        this.weight = weight;
+        if (weight < 0){
+            System.out.println("Вес должен быть больше 0");
+        } else {
+            this.weight = weight;
+        }
     }
 
     public static int getCount() {
@@ -148,5 +152,10 @@ public class Kotik {
 
     boolean hunt() {
         return doActivity("hunting");
+    }
+
+    @Override
+    public void run() {
+        System.out.println("Kotik is running");
     }
 }

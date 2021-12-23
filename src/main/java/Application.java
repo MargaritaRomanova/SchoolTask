@@ -5,7 +5,6 @@ public class Application {
         Kotik kotik1 = new Kotik("Kotofeich", "meow-meow", 3, 10);
         Kotik kotik2 = new Kotik();
         kotik2.setName("Kisa");
-        kotik2.setVoice("meow-meow");
         kotik2.setSatiety(5);
         kotik2.setWeight(6);
 
